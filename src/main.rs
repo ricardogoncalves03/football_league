@@ -1,6 +1,6 @@
 mod teams;
 
-use teams::{Team, TeamInfo};
+use teams::Team;
 
 fn main() {
     // Access team details

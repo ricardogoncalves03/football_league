@@ -12,6 +12,7 @@ pub enum Team {
     Benfica,
 }
 
+#[derive(Debug)]
 pub struct TeamInfo {
     name: String,
     country: String,
