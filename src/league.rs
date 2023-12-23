@@ -6,7 +6,6 @@ fn get_num_teams(teams: &[Team]) -> usize {
 }
 
 pub fn simulate_league(teams: &mut [Team]) {
-    // let num_teams = teams.len();
 
     // Iterate through each team
     for i in 0..get_num_teams(teams) {
@@ -24,12 +23,6 @@ pub fn simulate_league(teams: &mut [Team]) {
             teams[i] = team1;
             teams[j] = team2;
         }
-    }
-}
-
-fn simulate_match(teams: &mut [Team], team1: &mut Team, team2: &mut Team) {
-    for _ in 0..get_num_teams(teams)*2 {
-        play_match(team1, team2);
     }
 }
 

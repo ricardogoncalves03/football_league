@@ -1,9 +1,13 @@
 mod teams;
 mod matches;
 mod league;
+mod user_bet;
 
 use teams::Team;
 use league::{display_standings, simulate_league};
+use user_bet::take_bet;
+
+use crate::user_bet::check_bet_result;
 
 fn main() {
     let barcelona = Team::new("Barcelona", "Spain");
@@ -12,9 +16,20 @@ fn main() {
     let manchester_city = Team::new("Manchester City", "England");
     let mut teams = vec![barcelona, real_madrid, bayern_munich, manchester_city];
 
-    // Each team play agains each other 2 times
+    // Each team plays against each other 2 times
     simulate_league(&mut teams);
     simulate_league(&mut teams);
-    // Display final results
-    display_standings(&teams);
+
+    // User places a bet
+    //let winning_index = 0; // Set the winning index accordingly
+    if let Some(selected_index) = take_bet(&teams) {
+        display_standings(&teams);
+        check_bet_result(selected_index, &teams);
+        // Display final results
+    } else {
+        println!("Invalid selection or input");
+    }
+
+
+
 }

@@ -22,9 +22,4 @@ impl Team {
     pub fn update_score(&mut self, points:u32) {
         self.score += points;
     }
-/* 
-    pub fn get_score(&self) -> u32 {
-        self.score
-    }
-*/
 }

@@ -10,7 +10,6 @@ pub enum MatchResult {
 
 pub fn play_match(team1: &mut Team, team2: &mut Team) -> MatchResult {
     let match_outcome = random::<f32>();
-    println!("{match_outcome}");
 
     if match_outcome > 0.66 {
         // Team 1 wins
