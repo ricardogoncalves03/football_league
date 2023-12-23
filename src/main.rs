@@ -1,15 +1,20 @@
 mod teams;
 mod matches;
+mod league;
 
 use teams::Team;
-use matches::play_match;
+use league::{display_standings, simulate_league};
 
 fn main() {
-    // Access team details
-    let barcelona = &mut Team::new("Barcelona", "Spain");
-    // println!("{:?}", barcelona);
-    let real_madrid = &mut Team::new("Real Madrid", "Spain");
+    let barcelona = Team::new("Barcelona", "Spain");
+    let real_madrid = Team::new("Real Madrid", "Spain");
+    let bayern_munich = Team::new("Bayern Munich", "Germany");
+    let manchester_city = Team::new("Manchester City", "England");
+    let mut teams = vec![barcelona, real_madrid, bayern_munich, manchester_city];
 
-    let result = play_match(barcelona, real_madrid);
-    println!("{:?}", result);
+    // Each team play agains each other 2 times
+    simulate_league(&mut teams);
+    simulate_league(&mut teams);
+    // Display final results
+    display_standings(&teams);
 }

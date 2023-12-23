@@ -1,7 +1,4 @@
-// matches.rs could have a Match struct.
-// Employ a Vector in the matches module to track played matches
 use crate::teams::Team;
-
 use rand::random;
 
 #[derive(Debug)]
@@ -17,16 +14,16 @@ pub fn play_match(team1: &mut Team, team2: &mut Team) -> MatchResult {
 
     if match_outcome > 0.66 {
         // Team 1 wins
-        team1.update__score(3);
+        team1.update_score(3);
         MatchResult::Win
     } else if match_outcome < 0.33 {
         // Team 2 wins
-        team2.update__score(3);
+        team2.update_score(3);
         MatchResult::Lose
     } else {
         // Draw
-        team1.update__score(1);
-        team2.update__score(1);
+        team1.update_score(1);
+        team2.update_score(1);
         MatchResult::Draw
     }
 }

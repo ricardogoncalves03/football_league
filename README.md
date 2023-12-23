@@ -14,8 +14,6 @@ The primary goal of this project is to consolidate my learnings in Rust up to Ch
 
 ## Running the Program
 
-To run the program, ensure you have Rust installed. Navigate to the project directory and run:
-
 Ensure you have Rust installed on your system. If not, install it from [rust-lang.org](https://www.rust-lang.org/).
 
 Clone the repository:

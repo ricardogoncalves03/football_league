@@ -2,23 +2,29 @@
 
 // Use a HashMap in the teams module to store teams' data.
 
-#[derive(Debug)]
+#[derive(Debug, Default, Clone)]
 pub struct Team {
-    _name: String,
+    pub name: String,
     _country: String,
-    _score: u32,
+    pub score: u32,
     // Add new fields here accordingly
 }
 
 impl Team {
-    pub fn new(_name: &str, _country: &str) -> Self {
+    pub fn new(name: &str, _country: &str) -> Self {
         Team {
-            _name: _name.to_string(),
+            name: name.to_string(),
             _country: _country.to_string(),
-            _score: 0,
+            score: 0,
         }
     }
-    pub fn update__score(&mut self, points:u32) {
-        self._score += points;
+
+    pub fn update_score(&mut self, points:u32) {
+        self.score += points;
     }
+/* 
+    pub fn get_score(&self) -> u32 {
+        self.score
+    }
+*/
 }
