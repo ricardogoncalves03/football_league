@@ -21,7 +21,6 @@ fn main() {
     simulate_league(&mut teams);
 
     // User places a bet
-    //let winning_index = 0; // Set the winning index accordingly
     if let Some(selected_index) = take_bet(&teams) {
         display_standings(&teams);
         check_bet_result(selected_index, &teams);
@@ -29,7 +28,4 @@ fn main() {
     } else {
         println!("Invalid selection or input");
     }
-
-
-
 }
