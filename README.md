@@ -3,10 +3,22 @@
 This Rust project is a CLI program that simulates a football league where six teams play against each other. The program calculates the champion based on a point system (3 points for a win, 1 for a draw, and 0 for a loss).
 
 ## Project Structure
+.
+├── league.rs
+├── main.rs
+├── matches.rs
+├── teams.rs
+├── tests.rs
+└── user_bet.rs
 
 The project consists of the following components:
 
-- TBD
+- league.rs: Contains logic for league management, standings, and match simulations.
+- main.rs: Entry point for the Rust program.
+- matches.rs: Logic related to matches and gameplay.
+- teams.rs: Structures and functions related to teams participating in the league.
+- tests.rs: Test suite for the program.
+- user_bet.rs: Handles user betting logic and interaction.
 
 ## Goal
 
