@@ -3,41 +3,22 @@
 // Use a HashMap in the teams module to store teams' data.
 
 #[derive(Debug)]
-pub enum Team {
-    Barcelona,
-    RealMadrid,
-    BayernMunich,
-    ManCity,
-    Liverpool,
-    Benfica,
-}
-
-#[derive(Debug)]
-pub struct TeamInfo {
-    name: String,
-    country: String,
-    //TO DO - add new fields
+pub struct Team {
+    _name: String,
+    _country: String,
+    _score: u32,
+    // Add new fields here accordingly
 }
 
 impl Team {
-    pub fn details(&self) -> TeamInfo {
-        match self {
-            Team::Barcelona => TeamInfo {
-                name: "Barcelona".to_string(),
-                country: "Spain".to_string(),
-            },
-            Team::RealMadrid => TeamInfo {
-                name: "Real Madrid".to_string(),
-                country: "Spain".to_string(),
-            },
-            Team::BayernMunich => TeamInfo {
-                name: "Bayern Munich".to_string(),
-                country: "Germany".to_string(),
-            }, //TO DO - add missing clubs
-            _ => TeamInfo {
-                name: "Unknown".to_string(),
-                country: "Unknown".to_string(),
-            }
+    pub fn new(_name: &str, _country: &str) -> Self {
+        Team {
+            _name: _name.to_string(),
+            _country: _country.to_string(),
+            _score: 0,
         }
+    }
+    pub fn update__score(&mut self, points:u32) {
+        self._score += points;
     }
 }
