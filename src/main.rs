@@ -5,15 +5,13 @@ mod user_bet;
 
 use teams::Team;
 use league::{display_standings, simulate_league};
-use user_bet::take_bet;
-
-use crate::user_bet::check_bet_result;
+use user_bet::{take_bet,  check_bet_result};
 
 fn main() {
-    let barcelona = Team::new("Barcelona", "Spain");
-    let real_madrid = Team::new("Real Madrid", "Spain");
-    let bayern_munich = Team::new("Bayern Munich", "Germany");
-    let manchester_city = Team::new("Manchester City", "England");
+    let barcelona = Team::new("Barcelona");
+    let real_madrid = Team::new("Real Madrid");
+    let bayern_munich = Team::new("Bayern Munich");
+    let manchester_city = Team::new("Manchester City");
     let mut teams = vec![barcelona, real_madrid, bayern_munich, manchester_city];
 
     // Each team plays against each other 2 times

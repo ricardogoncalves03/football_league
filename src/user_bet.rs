@@ -30,10 +30,14 @@ pub fn take_bet(teams: &[Team]) -> Option<usize> {
 }
 
 pub fn check_bet_result(winner_index: usize, teams: &[Team]) {
-    let max_score_team_index = teams.iter().enumerate().max_by_key(
-        |(_, team)| team.score).map(|(index, _)| index
-    );
+    // Finding the index of the team with the maximum score in the league
+    let max_score_team_index = teams
+        .iter()
+        .enumerate()
+        .max_by_key(|(_, team)| team.score)
+        .map(|(index, _)| index);
 
+    // Comparing the user's bet index with the index of the team that won the league
     match max_score_team_index {
         Some(index) if index == winner_index => println!("Congratulations! You won!"),
         _ => println!("Better luck next time!"),

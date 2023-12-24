@@ -6,7 +6,6 @@ fn get_num_teams(teams: &[Team]) -> usize {
 }
 
 pub fn simulate_league(teams: &mut [Team]) {
-
     // Iterate through each team
     for i in 0..get_num_teams(teams) {
         // For each team, iterate through remaining teams to avoid duplicate matches
@@ -16,10 +15,8 @@ pub fn simulate_league(teams: &mut [Team]) {
             let mut team2 = teams[j].clone();
 
             play_match(&mut team1, &mut team2);
-            // Simulate match between team1 and team2
-            // simulate_match(&mut team1, &mut team2);
 
-            // Update the teams array with the results
+            // Update the teams slice with the results
             teams[i] = team1;
             teams[j] = team2;
         }
