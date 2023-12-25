@@ -33,12 +33,24 @@ mod tests {
     use crate::teams::Team;
 
     #[test]
-    fn test_play_match() {
+    fn test_play_match_scores() {
         let mut team1 = Team::new("Team 1");
+        let initial_score_team1 = team1.score;
+
         let mut team2 = Team::new("Team 2");
+        let initial_score_team2 = team2.score;
+
         let result = play_match(&mut team1, &mut team2);
-        // Assert based on the result and updated scores.
+
+        match result {
+            MatchResult::Win => assert!(team1.score > initial_score_team1 && team2.score == initial_score_team2),
+            MatchResult::Lose => assert!(team2.score > initial_score_team2 && team1.score == initial_score_team1),
+            MatchResult::Draw => assert!(team1.score > initial_score_team1 && team2.score > initial_score_team2),
+        }
     }
 
-    // Additional tests simulating different match outcomes.
+    #[test]
+    fn test_match_outcome_values() {
+        let match_out
+    }
 }

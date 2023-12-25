@@ -60,6 +60,16 @@ mod tests {
     }
 
     #[test]
+    fn test_simulate_league_with_odd_number_of_teams() {
+        let mut teams = vec![
+            Team::new("Team 1"), Team::new("Team 2"), Team::new("Team 3")
+        ];
+        let result = simulate_league(&mut teams);
+        assert!(result.is_err());
+        assert_eq!(result.unwrap_err(), "The league requires an even number of teams.");
+    }
+
+    #[test]
     fn test_standings_with_random_order_teams() {
         let teams = vec![
             Team { name: "Team A".to_string(), score: 10 },
