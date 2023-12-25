@@ -1,1 +1,13 @@
-/target
+# Ignore compiled files and build directories
+target/
+Cargo.lock
+Cargo.toml.orig
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
+
+# Ignore Mac OS system files
+.DS_Store
+
+# Ignore Rust generated documentation
+doc/

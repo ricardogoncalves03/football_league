@@ -2,8 +2,6 @@
 
 This Rust project simulates a football league where six teams play against each other. The program calculates the champion based on a point system (3 points for a win, 1 for a draw, and 0 for a loss). The program offers interaction with the user via the command line interface (CLI). The user can engage by placing a bet on the team he believes will emerge as the league's winner. Input prompts guide the user through the selection process for his bet before the final standings are displayed.
 
-
-
 ## Project Structure
 
 The project consists of the following components:
