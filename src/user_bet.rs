@@ -1,6 +1,7 @@
 use crate::teams::Team;
 use std::io;
 
+#[allow(dead_code)]
 pub fn take_bet(teams: &[Team]) -> Option<usize> {
     println!("Place your bet on a team:");
     for (index, team) in teams.iter().enumerate() {
@@ -31,6 +32,7 @@ pub fn take_bet(teams: &[Team]) -> Option<usize> {
     }
 }
 
+#[allow(dead_code)]
 pub fn check_bet_result(winner_index: usize, teams: &[Team]) {
     // Finding the index of the team with the maximum score in the league
     let max_score_team_index = teams

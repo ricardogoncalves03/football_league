@@ -1,4 +1,4 @@
 pub mod league;
-pub mod teams;
 mod matches;
+pub mod teams;
 mod user_bet;

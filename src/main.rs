@@ -21,12 +21,14 @@ fn main() {
 
             // User places a bet
             if let Some(selected_index) = take_bet(&teams) {
-                display_standings(&teams);
                 check_bet_result(selected_index, &teams);
-                // Display final results
             } else {
                 println!("Invalid selection or input");
             }
+
+            // Display standings regardless of betting
+            let standings = display_standings(&teams);
+            println!("{}", standings);
         }
         Err(e) => eprintln!("Error: {}", e),
     }
