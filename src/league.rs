@@ -6,6 +6,9 @@ fn get_num_teams(teams: &[Team]) -> usize {
 }
 
 pub fn simulate_league(teams: &mut [Team]) -> Result<(), String> {
+    if teams.is_empty() {
+        return Err("The league cannot have zero teams.".to_string());
+    }
     if teams.len() % 2 != 0 {
         return Err("The league requires an even number of teams.".to_string());
     }
@@ -39,14 +42,17 @@ pub fn display_standings(teams: &[Team]) -> String {
 
     for i in (0..get_num_teams(teams)).rev() {
         let team = &sorted_teams[i];
-        standings.push_str(&format!("{} - {}: {} points\n", 
-        get_num_teams(teams) - i, team.name, team.score));
+        standings.push_str(&format!(
+            "{} - {}: {} points\n",
+            get_num_teams(teams) - i,
+            team.name,
+            team.score
+        ));
     }
     standings.push_str("-----------------\n");
 
     standings
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -62,19 +68,33 @@ mod tests {
     #[test]
     fn test_simulate_league_with_odd_number_of_teams() {
         let mut teams = vec![
-            Team::new("Team 1"), Team::new("Team 2"), Team::new("Team 3")
+            Team::new("Team 1"),
+            Team::new("Team 2"),
+            Team::new("Team 3"),
         ];
         let result = simulate_league(&mut teams);
         assert!(result.is_err());
-        assert_eq!(result.unwrap_err(), "The league requires an even number of teams.");
+        assert_eq!(
+            result.unwrap_err(),
+            "The league requires an even number of teams."
+        );
     }
 
     #[test]
     fn test_standings_with_random_order_teams() {
         let teams = vec![
-            Team { name: "Team A".to_string(), score: 10 },
-            Team { name: "Team B".to_string(), score: 15 },
-            Team { name: "Team C".to_string(), score: 5 },
+            Team {
+                name: "Team A".to_string(),
+                score: 10,
+            },
+            Team {
+                name: "Team B".to_string(),
+                score: 15,
+            },
+            Team {
+                name: "Team C".to_string(),
+                score: 5,
+            },
         ];
         let standings = display_standings(&teams);
 
@@ -90,4 +110,11 @@ mod tests {
         assert_eq!(standings, expected_output);
     }
 
+    #[test]
+    fn test_simulate_league_with_no_teams() {
+        let mut teams = vec![];
+        let result = simulate_league(&mut teams);
+        assert!(result.is_err());
+        assert_eq!(result.unwrap_err(), "The league cannot have zero teams.");
+    }
 }

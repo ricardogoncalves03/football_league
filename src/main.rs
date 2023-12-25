@@ -1,18 +1,18 @@
-mod teams;
-mod matches;
 mod league;
+mod matches;
+mod teams;
 mod user_bet;
 
-use teams::Team;
 use league::{display_standings, simulate_league};
-use user_bet::{take_bet,  check_bet_result};
+use teams::Team;
+use user_bet::{check_bet_result, take_bet};
 
 fn main() {
     let barcelona = Team::new("Barcelona");
     let real_madrid = Team::new("Real Madrid");
     let bayern_munich = Team::new("Bayern Munich");
-    //let manchester_city = Team::new("Manchester City");
-    let mut teams = vec![barcelona, real_madrid, bayern_munich, /*manchester_city*/];
+    let manchester_city = Team::new("Manchester City");
+    let mut teams = vec![barcelona, real_madrid, bayern_munich, manchester_city];
 
     // Each team plays against each other 2 times
     match simulate_league(&mut teams) {
@@ -27,8 +27,7 @@ fn main() {
             } else {
                 println!("Invalid selection or input");
             }
-        },
+        }
         Err(e) => eprintln!("Error: {}", e),
     }
 }
-

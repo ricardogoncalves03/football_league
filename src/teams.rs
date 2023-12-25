@@ -12,7 +12,7 @@ impl Team {
         }
     }
 
-    pub fn update_score(&mut self, points:u32) {
+    pub fn update_score(&mut self, points: u32) {
         self.score += points;
     }
 }

@@ -4,7 +4,7 @@ use rand::random;
 #[derive(Debug)]
 pub enum MatchResult {
     Win,
-    Draw, 
+    Draw,
     Lose,
 }
 
@@ -43,14 +43,15 @@ mod tests {
         let result = play_match(&mut team1, &mut team2);
 
         match result {
-            MatchResult::Win => assert!(team1.score > initial_score_team1 && team2.score == initial_score_team2),
-            MatchResult::Lose => assert!(team2.score > initial_score_team2 && team1.score == initial_score_team1),
-            MatchResult::Draw => assert!(team1.score > initial_score_team1 && team2.score > initial_score_team2),
+            MatchResult::Win => {
+                assert!(team1.score > initial_score_team1 && team2.score == initial_score_team2)
+            }
+            MatchResult::Lose => {
+                assert!(team2.score > initial_score_team2 && team1.score == initial_score_team1)
+            }
+            MatchResult::Draw => {
+                assert!(team1.score > initial_score_team1 && team2.score > initial_score_team2)
+            }
         }
-    }
-
-    #[test]
-    fn test_match_outcome_values() {
-        let match_out
     }
 }
