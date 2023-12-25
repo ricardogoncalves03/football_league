@@ -15,15 +15,20 @@ fn main() {
     let mut teams = vec![barcelona, real_madrid, bayern_munich, manchester_city];
 
     // Each team plays against each other 2 times
-    simulate_league(&mut teams);
-    simulate_league(&mut teams);
+    match simulate_league(&mut teams) {
+        Ok(_) => {
+            println!("League simulation completed successfully.");
 
-    // User places a bet
-    if let Some(selected_index) = take_bet(&teams) {
-        display_standings(&teams);
-        check_bet_result(selected_index, &teams);
-        // Display final results
-    } else {
-        println!("Invalid selection or input");
+            // User places a bet
+            if let Some(selected_index) = take_bet(&teams) {
+                display_standings(&teams);
+                check_bet_result(selected_index, &teams);
+                // Display final results
+            } else {
+                println!("Invalid selection or input");
+            }
+        },
+        Err(e) => eprintln!("Error: {}", e),
     }
 }
+

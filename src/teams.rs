@@ -16,3 +16,22 @@ impl Team {
         self.score += points;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new_team() {
+        let team = Team::new("Test Team");
+        assert_eq!(team.name, "Test Team");
+        assert_eq!(team.score, 0);
+    }
+
+    #[test]
+    fn test_update_score() {
+        let mut team = Team::new("Test Team");
+        team.update_score(5);
+        assert_eq!(team.score, 5);
+    }
+}

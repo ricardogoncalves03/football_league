@@ -43,3 +43,23 @@ pub fn check_bet_result(winner_index: usize, teams: &[Team]) {
         _ => println!("Better luck next time!"),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::teams::Team;
+
+    #[test]
+    fn test_check_bet_result_winner() {
+        let teams = vec![
+            Team { name: "Team 1".to_string(), score: 3 },
+            Team { name: "Team 2".to_string(), score: 5 }
+        ];
+        let winner_index = 1; // Index of Team 2
+        let output = check_bet_result(winner_index, &teams);
+        // Assert the output as needed.
+    }
+
+    // Additional tests for edge cases and failure scenarios.
+}
+

@@ -26,3 +26,19 @@ pub fn play_match(team1: &mut Team, team2: &mut Team) -> MatchResult {
         MatchResult::Draw
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::teams::Team;
+
+    #[test]
+    fn test_play_match() {
+        let mut team1 = Team::new("Team 1");
+        let mut team2 = Team::new("Team 2");
+        let result = play_match(&mut team1, &mut team2);
+        // Assert based on the result and updated scores.
+    }
+
+    // Additional tests simulating different match outcomes.
+}
